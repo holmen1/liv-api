@@ -9,17 +9,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var sqlConBuilder = new SqlConnectionStringBuilder();
-sqlConBuilder.ConnectionString = builder.Configuration.GetConnectionString("SQLDbConnection");
+sqlConBuilder.ConnectionString = builder.Configuration.GetConnectionString("AppDbConnection");
 sqlConBuilder.UserID = builder.Configuration["UserID"];
 sqlConBuilder.Password = builder.Configuration["Password"];
 
-builder.Services.AddDbContext<TodoItemsContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
+//builder.Services.AddDbContext<TodoItemsContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -29,7 +29,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Hello World!");
-
+/*
 app.MapGet("/todoitems", async (TodoItemsContext db) =>
     await db.Todos.ToListAsync());
 
@@ -73,6 +73,47 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoItemsContext db) =>
         return Results.Ok(todo);
     }
 
+    return Results.NotFound();
+});
+*/
+
+// Insurance
+app.MapGet("/api/insurances", async (AppDbContext db) => await db.Insurances.ToListAsync());
+app.MapGet("/api/insurance/{id}", async (AppDbContext db, int id) =>
+    await db.Insurances.FindAsync(id)
+        is Insurance insurance
+        ? Results.Ok(insurance)
+        : Results.NotFound());
+
+app.MapPost("/api/insurance", async (AppDbContext db, Insurance insurance) =>
+{
+    await db.Insurances.AddAsync(insurance);
+    await db.SaveChangesAsync();
+    return Results.Created($"/api/insurance/{insurance.InsuranceId}", insurance);
+});
+app.MapPut("/api/insurance/{id}", async (int id, Insurance inputInsurance, AppDbContext db) =>
+{
+    var insurance = await db.Insurances.FindAsync(id);
+    if (insurance is null) return Results.NotFound();
+    insurance.Sex = inputInsurance.Sex;
+    insurance.z = inputInsurance.z;
+    insurance.GuaranteeAmount = inputInsurance.GuaranteeAmount;
+    insurance.PaymentTime = inputInsurance.PaymentTime;
+    insurance.GuaranteeTime = inputInsurance.GuaranteeTime;
+    insurance.Product = inputInsurance.Product;
+    insurance.Table = inputInsurance.Table;
+    
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
+app.MapDelete("/api/insurance/{id}", async (int id, AppDbContext db) =>
+{
+    if (await db.Insurances.FindAsync(id) is Insurance insurance)
+    {
+        db.Insurances.Remove(insurance);
+        await db.SaveChangesAsync();
+        return Results.Ok(insurance);
+    }
     return Results.NotFound();
 });
 
