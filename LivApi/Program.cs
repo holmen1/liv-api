@@ -13,7 +13,6 @@ sqlConBuilder.ConnectionString = builder.Configuration.GetConnectionString("AppD
 sqlConBuilder.UserID = builder.Configuration["UserID"];
 sqlConBuilder.Password = builder.Configuration["Password"];
 
-//builder.Services.AddDbContext<TodoItemsContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -29,53 +28,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Hello World!");
-/*
-app.MapGet("/todoitems", async (TodoItemsContext db) =>
-    await db.Todos.ToListAsync());
-
-app.MapGet("/todoitems/complete", async (TodoItemsContext db) =>
-    await db.Todos.Where(t => t.IsComplete).ToListAsync());
-
-app.MapGet("/todoitems/{id}", async (int id, TodoItemsContext db) =>
-    await db.Todos.FindAsync(id)
-        is Todo todo
-        ? Results.Ok(todo)
-        : Results.NotFound());
-
-app.MapPost("/todoitems", async (Todo todo, TodoItemsContext db) =>
-{
-    db.Todos.Add(todo);
-    await db.SaveChangesAsync();
-
-    return Results.Created($"/todoitems/{todo.Id}", todo);
-});
-
-app.MapPut("/todoitems/{id}", async (int id, Todo inputTodo, TodoItemsContext db) =>
-{
-    var todo = await db.Todos.FindAsync(id);
-
-    if (todo is null) return Results.NotFound();
-
-    todo.Name = inputTodo.Name;
-    todo.IsComplete = inputTodo.IsComplete;
-
-    await db.SaveChangesAsync();
-
-    return Results.NoContent();
-});
-
-app.MapDelete("/todoitems/{id}", async (int id, TodoItemsContext db) =>
-{
-    if (await db.Todos.FindAsync(id) is Todo todo)
-    {
-        db.Todos.Remove(todo);
-        await db.SaveChangesAsync();
-        return Results.Ok(todo);
-    }
-
-    return Results.NotFound();
-});
-*/
 
 // Insurance
 app.MapGet("/api/insurances", async (AppDbContext db) => await db.Insurances.ToListAsync());
