@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivApi", "LivApi\LivApi.csproj", "{FBA6A4FA-05BE-4C51-8E00-0293D0930BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivApi.Tests", "LivApi.Tests\LivApi.Tests.csproj", "{3642027C-3D61-4CF6-9C6C-A176E205E125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{FBA6A4FA-05BE-4C51-8E00-0293D0930BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA6A4FA-05BE-4C51-8E00-0293D0930BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBA6A4FA-05BE-4C51-8E00-0293D0930BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
