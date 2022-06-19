@@ -3,13 +3,13 @@
 
 1. start sql server
    
-    /LivApi$ docker-compose up -d
+    /liv-api$ docker-compose up -d
 2. update database
 
-   /LivApi$ dotnet ef database update
+   liv-api/LivApi$ dotnet ef database update
 3. run
 
-   /LivApi$ dotnet run
+   liv-api/LivApi$ dotnet run
 
 
 
