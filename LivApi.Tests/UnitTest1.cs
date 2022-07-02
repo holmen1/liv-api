@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using LivApi.Models;
@@ -35,34 +36,27 @@ public class Tests
         Assert.IsNotEmpty(insurances);
     }
     
-    // 500
-    // [Test]
-    // public async Task PostInsurance()
-    // {
-    //     await using var application = new LivApplication();
-    //     var client = application.CreateClient();
-    //     
-    //     var response = await client.PostAsJsonAsync("/api/insurance",
-    //         new Insurance { Id = 2,
-    //             InsuranceId=0,
-    //             PersonalId=0,
-    //             Sex="string",
-    //             z=0,
-    //             GuaranteeAmount=0,
-    //             PaymentTime=0,
-    //             GuaranteeTime=0,
-    //             Product="string",
-    //             Table="string"
-    //         });
-    //
-    //     Assert.IsTrue(HttpStatusCode.Created == response.StatusCode);
-    //
-    //     //var todos = await client.GetFromJsonAsync<List<Todo>>("/todos");
-    //
-    //     //var todo = Assert.Single(todos);
-    //     //Assert.IsTrue("I want to do this thing tomorrow" == todo.Title);
-    //     //Assert.False(todo.IsComplete);
-    // }
+    [Test]
+    public async Task PostInsurance()
+    {
+        await using var application = new LivApplication();
+        var client = application.CreateClient();
+        
+        var response = await client.PostAsJsonAsync("/api/insurance",
+            new Insurance { //Id = 2,
+                InsuranceId=0,
+                PersonalId=0,
+                Sex="string",
+                z=0,
+                GuaranteeAmount=0,
+                PaymentTime=0,
+                GuaranteeTime=0,
+                Product="string",
+                Table="string"
+            });
+    
+        Assert.IsTrue(HttpStatusCode.Created == response.StatusCode);
+    }
 }
 
 class LivApplication : WebApplicationFactory<Program>
