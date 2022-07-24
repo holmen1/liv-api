@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivApi", "LivApi\LivApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivApi.Tests", "LivApi.Tests\LivApi.Tests.csproj", "{3642027C-3D61-4CF6-9C6C-A176E205E125}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Quadrature", "Quadrature\Quadrature.fsproj", "{A10B4115-47E8-4779-822B-A46E0281E4D9}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Quadrature.Tests", "Quadrature.Tests\Quadrature.Tests.fsproj", "{ED6514AE-BED9-4083-BAB9-04F0160E5B75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3642027C-3D61-4CF6-9C6C-A176E205E125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10B4115-47E8-4779-822B-A46E0281E4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10B4115-47E8-4779-822B-A46E0281E4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10B4115-47E8-4779-822B-A46E0281E4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10B4115-47E8-4779-822B-A46E0281E4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

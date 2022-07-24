@@ -12,6 +12,16 @@ var sqlConBuilder = new SqlConnectionStringBuilder();
 sqlConBuilder.ConnectionString = builder.Configuration.GetConnectionString("AppDbConnection");
 sqlConBuilder.UserID = builder.Configuration["UserID"];
 sqlConBuilder.Password = builder.Configuration["Password"];
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        builder =>
+        {
+            builder.WithOrigins("*");
+        });
+});
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(sqlConBuilder.ConnectionString));
 
@@ -26,6 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapGet("/", () => "Hello World!");
 
