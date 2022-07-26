@@ -11,6 +11,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Quadrature", "Quadrature\Qu
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Quadrature.Tests", "Quadrature.Tests\Quadrature.Tests.fsproj", "{ED6514AE-BED9-4083-BAB9-04F0160E5B75}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ActuarialLife", "ActuarialLife\ActuarialLife.fsproj", "{CF29F32A-69B2-47DB-9280-4AA17E0E74D8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ActuarialConsole", "ActuarialConsole\ActuarialConsole.fsproj", "{3E340D9F-05E0-453F-88FE-F3BED38074D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED6514AE-BED9-4083-BAB9-04F0160E5B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF29F32A-69B2-47DB-9280-4AA17E0E74D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF29F32A-69B2-47DB-9280-4AA17E0E74D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF29F32A-69B2-47DB-9280-4AA17E0E74D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF29F32A-69B2-47DB-9280-4AA17E0E74D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E340D9F-05E0-453F-88FE-F3BED38074D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E340D9F-05E0-453F-88FE-F3BED38074D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E340D9F-05E0-453F-88FE-F3BED38074D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E340D9F-05E0-453F-88FE-F3BED38074D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

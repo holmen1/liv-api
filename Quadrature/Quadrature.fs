@@ -1,6 +1,5 @@
 ﻿namespace Quadrature
 
-open System;
 
 module Simpson =
     let compositeSimpson n a b f =
